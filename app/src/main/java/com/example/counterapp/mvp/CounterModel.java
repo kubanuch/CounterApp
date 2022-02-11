@@ -1,4 +1,4 @@
-package com;
+package com.example.counterapp.mvp;
 
 
 public class CounterModel {

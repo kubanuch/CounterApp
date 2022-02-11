@@ -1,4 +1,4 @@
-package com.example.counterapp;
+package com.example.counterapp.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.CounterContracts;
-import com.CounterPresenter;
-import com.Injector;
+import com.example.counterapp.mvp.CounterContracts;
+import com.example.counterapp.mvp.CounterPresenter;
+import com.example.counterapp.injector.Injector;
 import com.example.counterapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements CounterContracts.CounterView{
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements CounterContracts.
             @Override
             public void onClick(View view) {
                 presenter.increment();
-                presenter.sendMessage();
+                presenter.colorText();
 
             }
         });
@@ -39,13 +39,12 @@ public class MainActivity extends AppCompatActivity implements CounterContracts.
             @Override
             public void onClick(View view) {
                 presenter.decrement();
-                presenter.sendMessage();
+                presenter.colorText();
             }
         });
         binding.messageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.decrement();
                 presenter.sendMessage();
             }
         });
