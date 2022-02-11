@@ -31,31 +31,37 @@ public class MainActivity extends AppCompatActivity implements CounterContracts.
             @Override
             public void onClick(View view) {
                 presenter.increment();
+                presenter.sendMessage();
+
             }
         });
         binding.decrementBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 presenter.decrement();
+                presenter.sendMessage();
             }
         });
         binding.messageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                presenter.decrement();
                 presenter.sendMessage();
             }
         });
     }
 
     @Override
-    public void UpdateCounter( int count) {
+    public void updateCounter(int count) {
         binding.numberTv.setText(String.valueOf(count));
-        if (count >= 10 ){
-            binding.numberTv.setBackgroundColor(Color.GREEN);
-        }else if(count <=10){
-            binding.numberTv.setBackgroundColor(Color.TRANSPARENT);
-        }
     }
+
+    @Override
+    public void greenText() {
+        binding.numberTv.setTextColor(Color.parseColor("#07E510"));
+
+    }
+
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();

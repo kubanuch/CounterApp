@@ -1,13 +1,19 @@
 package com;
 
+
 public class CounterModel {
-    int count = 0;
-    String message = "hello";
-    void increment(){
+    int count = 0 ;
+    String message = "Здарова";
+
+
+    void increment() {
         ++count;
+
     }
-    void decrement(){
-        --count;
+
+    void decrement() {
+        -- count;
+
     }
 
     public int getCount() {
@@ -18,3 +24,4 @@ public class CounterModel {
         return message;
     }
 }
+

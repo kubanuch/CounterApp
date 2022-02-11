@@ -11,15 +11,16 @@ public class CounterPresenter  implements CounterContracts.Presenter {
     @Override
     public void increment() {
         counterModel.increment();
-        counterView.UpdateCounter(counterModel.getCount());
+        counterView.updateCounter(counterModel.getCount());
 
     }
 
     @Override
     public void decrement() {
         counterModel.decrement();
-        counterView.UpdateCounter(counterModel.getCount());
+        counterView.updateCounter(counterModel.getCount());
     }
+
 
 
     @Override
@@ -28,6 +29,9 @@ public class CounterPresenter  implements CounterContracts.Presenter {
     }
     @Override
     public void sendMessage() {
-        counterView.showMessage(counterModel.getMessage());
+        if (counterModel.getCount()>=10 || counterModel.getCount()<-10)
+        counterView.greenText();
     }
+
+
 }
